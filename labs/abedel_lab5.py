@@ -85,17 +85,21 @@ def fitness(args):
 configs = list(product(learning_rate, num_layers, num_nodes))
 print(len(configs))
 
+configs_random = list(product(learning_rate_random, num_layers_random, num_nodes_random))
+print(len(configs_random))
+
 # Exercise Set 3 (b)
+
 t0 = time.time()
-ncores = 24
+ncores = 8
 
 if __name__ == "__main__":
     core_list=[]
-    for item in (configs):
-        core_list.append((item[0], item[1], item[2]))
+    for item in (configs_random):
+        core_list.append(item)
     p = multiprocessing.Pool(ncores)
     results = p.map(fitness, core_list)
     p.close()
     p.join()
 
-print('Grid Tuning in parallel with Pool took {}s to complete'.format(round(time.time()-t0)))
+print('Random Tuning in parallel with Pool took {}s to complete'.format(round(time.time()-t0)))
