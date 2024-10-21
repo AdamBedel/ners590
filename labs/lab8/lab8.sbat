@@ -1,11 +1,11 @@
 #!/bin/bash
 
-#SBATCH --job-name="demo"
+#SBATCH --job-name="lab8"
 
-#SBATCH --nodes=1
+#SBATCH --nodes=4
 #SBATCH --ntasks-per-node=1
 #SBATCH --mem-per-cpu=1
-#SBATCH --time=00:10:00
+#SBATCH --time=01:00:00
 #SBATCH --account=ners590s002f24_class
 #SBATCH --partition=standard
 #SBATCH --mail-user=abedel
