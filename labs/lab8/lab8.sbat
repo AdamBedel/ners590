@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#SBATCH --job-name="demo"
+#SBATCH --job-name="lab8"
 
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
@@ -8,11 +8,11 @@
 #SBATCH --time=00:10:00
 #SBATCH --account=ners590s002f24_class
 #SBATCH --partition=gpu
-#SBATCH --mail-user=abedel
+#SBATCH --mail-user=abedel@umich.edu
 #SBATCH --mail-type=BEGIN,END,FAIL
 
 #SBATCH --output=%x.%j.out
 #SBATCH --error=%x.%j.err
 
 /bin/hostname
-papermill notebook.ipynb notebook_out.ipynb
+papermill abedel_lab8.ipynb abedel_lab8_out.ipynb
