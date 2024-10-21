@@ -4,15 +4,20 @@
 
 #SBATCH --nodes=4
 #SBATCH --ntasks-per-node=1
+<<<<<<< HEAD
 #SBATCH --mem-per-cpu=1
 #SBATCH --time=01:00:00
+=======
+#SBATCH --mem-per-cpu=20
+#SBATCH --time=00:10:00
+>>>>>>> 6bad5e743a37af54a4367dda7baf9a2d4f78092e
 #SBATCH --account=ners590s002f24_class
-#SBATCH --partition=standard
-#SBATCH --mail-user=abedel
+#SBATCH --partition=gpu
+#SBATCH --mail-user=abedel@umich.edu
 #SBATCH --mail-type=BEGIN,END,FAIL
 
 #SBATCH --output=%x.%j.out
 #SBATCH --error=%x.%j.err
 
 /bin/hostname
-papermill notebook.ipynb notebook_out.ipynb
+papermill abedel_lab8.ipynb abedel_lab8_out.ipynb
