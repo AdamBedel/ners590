@@ -7,7 +7,7 @@
 #SBATCH --mem-per-cpu=768
 #SBATCH --time=01:00:00
 #SBATCH --account=ners590s002f24_class
-#SBATCH --partition=gpu
+#SBATCH --partition=standard
 #SBATCH --mail-user=abedel@umich.edu
 #SBATCH --mail-type=BEGIN,END,FAIL
 
