@@ -1,2 +1,0 @@
-/var/spool/slurmd.spool/job15842847/slurm_script: line 18: 2922323 Killed                  papermill notebook.ipynb notebook_out.ipynb
-slurmstepd: error: Detected 1 oom_kill event in StepId=15842847.batch. Some of the step tasks have been OOM Killed.
