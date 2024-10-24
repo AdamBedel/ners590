@@ -1,6 +1,0 @@
-Input Notebook:  abedel_lab8.ipynb
-Output Notebook: abedel_lab8_out.ipynb
-Executing:   0%|          | 0/23 [00:00<?, ?cell/s]Executing notebook with kernel: python3
-Executing:   4%|▍         | 1/23 [00:03<01:18,  3.55s/cell]Executing:  43%|████▎     | 10/23 [00:12<00:15,  1.19s/cell]Executing:  48%|████▊     | 11/23 [00:30<00:39,  3.32s/cell]Executing:  57%|█████▋    | 13/23 [00:30<00:24,  2.48s/cell]Executing:  65%|██████▌   | 15/23 [00:32<00:15,  2.00s/cell]Executing:  70%|██████▉   | 16/23 [00:32<00:11,  1.69s/cell]Executing:  74%|███████▍  | 17/23 [05:21<05:39, 56.67s/cell]Executing:  78%|███████▊  | 18/23 [05:22<03:42, 44.55s/cell]Executing:  83%|████████▎ | 19/23 [08:18<05:01, 75.50s/cell]Executing:  87%|████████▋ | 20/23 [08:19<02:50, 56.77s/cell]Executing:  91%|█████████▏| 21/23 [08:23<01:25, 42.92s/cell]Executing:  96%|█████████▌| 22/23 [08:23<00:31, 31.21s/cell]Executing: 100%|██████████| 23/23 [08:27<00:00, 22.05s/cell]
-/var/spool/slurmd.spool/job16087668/slurm_script: line 19: unexpected EOF while looking for matching `"'
-/var/spool/slurmd.spool/job16087668/slurm_script: line 20: syntax error: unexpected end of file
