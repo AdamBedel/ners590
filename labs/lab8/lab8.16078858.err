@@ -1,0 +1,3 @@
+/var/spool/slurmd.spool/job16078858/slurm_script: line 18: papermill: command not found
+/var/spool/slurmd.spool/job16078858/slurm_script: line 19: unexpected EOF while looking for matching `"'
+/var/spool/slurmd.spool/job16078858/slurm_script: line 20: syntax error: unexpected end of file
