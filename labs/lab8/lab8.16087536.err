@@ -1,0 +1,203 @@
+Input Notebook:  abedel_lab8.ipynb
+Output Notebook: abedel_lab8_out.ipynb
+Executing:   0%|          | 0/23 [00:00<?, ?cell/s]Executing notebook with kernel: python3
+Executing:   4%|▍         | 1/23 [00:03<01:17,  3.53s/cell]Executing:  43%|████▎     | 10/23 [00:13<00:16,  1.30s/cell]Executing:  48%|████▊     | 11/23 [00:53<01:15,  6.25s/cell]Executing:  57%|█████▋    | 13/23 [00:53<00:46,  4.62s/cell]Executing:  65%|██████▌   | 15/23 [00:55<00:28,  3.51s/cell]Executing:  74%|███████▍  | 17/23 [00:57<00:16,  2.79s/cell]Executing:  74%|███████▍  | 17/23 [00:58<00:20,  3.43s/cell]
+Traceback (most recent call last):
+  File "/home/abedel/.conda/envs/pymaise/bin/papermill", line 8, in <module>
+    sys.exit(papermill())
+             ^^^^^^^^^^^
+  File "/home/abedel/.conda/envs/pymaise/lib/python3.11/site-packages/click/core.py", line 1157, in __call__
+    return self.main(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/abedel/.conda/envs/pymaise/lib/python3.11/site-packages/click/core.py", line 1078, in main
+    rv = self.invoke(ctx)
+         ^^^^^^^^^^^^^^^^
+  File "/home/abedel/.conda/envs/pymaise/lib/python3.11/site-packages/click/core.py", line 1434, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/abedel/.conda/envs/pymaise/lib/python3.11/site-packages/click/core.py", line 783, in invoke
+    return __callback(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/abedel/.conda/envs/pymaise/lib/python3.11/site-packages/click/decorators.py", line 33, in new_func
+    return f(get_current_context(), *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/abedel/.conda/envs/pymaise/lib/python3.11/site-packages/papermill/cli.py", line 235, in papermill
+    execute_notebook(
+  File "/home/abedel/.conda/envs/pymaise/lib/python3.11/site-packages/papermill/execute.py", line 131, in execute_notebook
+    raise_for_execution_errors(nb, output_path)
+  File "/home/abedel/.conda/envs/pymaise/lib/python3.11/site-packages/papermill/execute.py", line 251, in raise_for_execution_errors
+    raise error
+papermill.exceptions.PapermillExecutionError: 
+---------------------------------------------------------------------------
+Exception encountered at "In [7]":
+---------------------------------------------------------------------------
+ValueError                                Traceback (most recent call last)
+Cell In[7], line 29
+      1 random_search_spaces = {
+      2     "Linear": {
+      3         "alpha": uniform(loc=0.0001, scale=0.0099), # 0.0001 - 0.01
+   (...)
+     26     },
+     27 }
+---> 29 random_search_configs = tuner.random_search(
+     30     param_spaces=random_search_spaces, 
+     31     #n_iter=200, 
+     32     n_iter=3, 
+     33     cv=5,
+     34 )
+     35 bayesian_search_configs = tuner.nn_bayesian_search(
+     36     objective="r2_score",
+     37     #max_trials=50,
+     38     max_trials=3,
+     39     cv=5,
+     40 )
+
+File ~/.conda/envs/pymaise/lib/python3.11/site-packages/pyMAISE/tuner.py:433, in Tuner.random_search(self, param_spaces, models, scoring, n_iter, n_jobs, refit, cv, pre_dispatch)
+    398 """
+    399 Random search over hyperparameter space for classical models. This function
+    400 uses `sklearn.model_selection.RandomizedSearchCV <https://scikit-learn.org/\
+   (...)
+    429     then all are taken.
+    430 """
+    431 print("Hyperparameter tuning classical models with random search")
+--> 433 return self._run_search(
+    434     spaces=param_spaces,
+    435     search_method=RandomizedSearchCV,
+    436     search_kwargs={
+    437         "scoring": scoring,
+    438         "n_iter": n_iter,
+    439         "n_jobs": n_jobs,
+    440         "refit": refit,
+    441         "cv": cv,
+    442         "verbose": settings.values.verbosity,
+    443         "random_state": settings.values.random_state,
+    444         "pre_dispatch": pre_dispatch,
+    445     },
+    446     models=models,
+    447 )
+
+File ~/.conda/envs/pymaise/lib/python3.11/site-packages/pyMAISE/tuner.py:593, in Tuner._run_search(self, spaces, search_method, search_kwargs, models)
+    589 # Run search method
+    590 search = search_method(
+    591     self._models[model].regressor(), spaces[model], **search_kwargs
+    592 )
+--> 593 resulting_models = search.fit(xtrain, ytrain)
+    595 # Save tuning results
+    596 cv_results = pd.DataFrame(resulting_models.cv_results_)
+
+File ~/.conda/envs/pymaise/lib/python3.11/site-packages/sklearn/base.py:1473, in _fit_context.<locals>.decorator.<locals>.wrapper(estimator, *args, **kwargs)
+   1466     estimator._validate_params()
+   1468 with config_context(
+   1469     skip_parameter_validation=(
+   1470         prefer_skip_nested_validation or global_skip_validation
+   1471     )
+   1472 ):
+-> 1473     return fit_method(estimator, *args, **kwargs)
+
+File ~/.conda/envs/pymaise/lib/python3.11/site-packages/sklearn/model_selection/_search.py:1019, in BaseSearchCV.fit(self, X, y, **params)
+   1013     results = self._format_results(
+   1014         all_candidate_params, n_splits, all_out, all_more_results
+   1015     )
+   1017     return results
+-> 1019 self._run_search(evaluate_candidates)
+   1021 # multimetric is determined here because in the case of a callable
+   1022 # self.scoring the return type is only known after calling
+   1023 first_test_score = all_out[0]["test_scores"]
+
+File ~/.conda/envs/pymaise/lib/python3.11/site-packages/sklearn/model_selection/_search.py:1960, in RandomizedSearchCV._run_search(self, evaluate_candidates)
+   1958 def _run_search(self, evaluate_candidates):
+   1959     """Search n_iter candidates from param_distributions"""
+-> 1960     evaluate_candidates(
+   1961         ParameterSampler(
+   1962             self.param_distributions, self.n_iter, random_state=self.random_state
+   1963         )
+   1964     )
+
+File ~/.conda/envs/pymaise/lib/python3.11/site-packages/sklearn/model_selection/_search.py:965, in BaseSearchCV.fit.<locals>.evaluate_candidates(candidate_params, cv, more_results)
+    957 if self.verbose > 0:
+    958     print(
+    959         "Fitting {0} folds for each of {1} candidates,"
+    960         " totalling {2} fits".format(
+    961             n_splits, n_candidates, n_candidates * n_splits
+    962         )
+    963     )
+--> 965 out = parallel(
+    966     delayed(_fit_and_score)(
+    967         clone(base_estimator),
+    968         X,
+    969         y,
+    970         train=train,
+    971         test=test,
+    972         parameters=parameters,
+    973         split_progress=(split_idx, n_splits),
+    974         candidate_progress=(cand_idx, n_candidates),
+    975         **fit_and_score_kwargs,
+    976     )
+    977     for (cand_idx, parameters), (split_idx, (train, test)) in product(
+    978         enumerate(candidate_params),
+    979         enumerate(cv.split(X, y, **routed_params.splitter.split)),
+    980     )
+    981 )
+    983 if len(out) < 1:
+    984     raise ValueError(
+    985         "No fits were performed. "
+    986         "Was the CV iterator empty? "
+    987         "Were there no candidates?"
+    988     )
+
+File ~/.conda/envs/pymaise/lib/python3.11/site-packages/sklearn/utils/parallel.py:74, in Parallel.__call__(self, iterable)
+     69 config = get_config()
+     70 iterable_with_config = (
+     71     (_with_config(delayed_func, config), args, kwargs)
+     72     for delayed_func, args, kwargs in iterable
+     73 )
+---> 74 return super().__call__(iterable_with_config)
+
+File ~/.conda/envs/pymaise/lib/python3.11/site-packages/joblib/parallel.py:1918, in Parallel.__call__(self, iterable)
+   1916     output = self._get_sequential_output(iterable)
+   1917     next(output)
+-> 1918     return output if self.return_generator else list(output)
+   1920 # Let's create an ID that uniquely identifies the current call. If the
+   1921 # call is interrupted early and that the same instance is immediately
+   1922 # re-used, this id will be used to prevent workers that were
+   1923 # concurrently finalizing a task from the previous call to run the
+   1924 # callback.
+   1925 with self._lock:
+
+File ~/.conda/envs/pymaise/lib/python3.11/site-packages/joblib/parallel.py:1847, in Parallel._get_sequential_output(self, iterable)
+   1845 self.n_dispatched_batches += 1
+   1846 self.n_dispatched_tasks += 1
+-> 1847 res = func(*args, **kwargs)
+   1848 self.n_completed_tasks += 1
+   1849 self.print_progress()
+
+File ~/.conda/envs/pymaise/lib/python3.11/site-packages/sklearn/utils/parallel.py:136, in _FuncWrapper.__call__(self, *args, **kwargs)
+    134     config = {}
+    135 with config_context(**config):
+--> 136     return self.function(*args, **kwargs)
+
+File ~/.conda/envs/pymaise/lib/python3.11/site-packages/sklearn/model_selection/_validation.py:876, in _fit_and_score(estimator, X, y, scorer, train, test, verbose, parameters, fit_params, score_params, return_train_score, return_parameters, return_n_test_samples, return_times, return_estimator, split_progress, candidate_progress, error_score)
+    869 score_params_test = _check_method_params(X, params=score_params, indices=test)
+    871 if parameters is not None:
+    872     # here we clone the parameters, since sometimes the parameters
+    873     # themselves might be estimators, e.g. when we search over different
+    874     # estimators in a pipeline.
+    875     # ref: https://github.com/scikit-learn/scikit-learn/pull/26786
+--> 876     estimator = estimator.set_params(**clone(parameters, safe=False))
+    878 start_time = time.time()
+    880 X_train, y_train = _safe_split(estimator, X, y, train)
+
+File ~/.conda/envs/pymaise/lib/python3.11/site-packages/sklearn/base.py:279, in BaseEstimator.set_params(self, **params)
+    277 if key not in valid_params:
+    278     local_valid_params = self._get_param_names()
+--> 279     raise ValueError(
+    280         f"Invalid parameter {key!r} for estimator {self}. "
+    281         f"Valid parameters are: {local_valid_params!r}."
+    282     )
+    284 if delim:
+    285     nested_params[key][sub_key] = value
+
+ValueError: Invalid parameter 'alpha' for estimator LinearRegression(). Valid parameters are: ['copy_X', 'fit_intercept', 'n_jobs', 'positive'].
+
+/var/spool/slurmd.spool/job16087536/slurm_script: line 19: unexpected EOF while looking for matching `"'
+/var/spool/slurmd.spool/job16087536/slurm_script: line 20: syntax error: unexpected end of file
