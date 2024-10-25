@@ -1,6 +1,0 @@
-Input Notebook:  abedel_lab8.ipynb
-Output Notebook: abedel_lab8_out.ipynb
-Executing:   0%|          | 0/27 [00:00<?, ?cell/s]Executing notebook with kernel: python3
-Executing:   4%|▎         | 1/27 [00:01<00:42,  1.64s/cell]Executing:  37%|███▋      | 10/27 [00:04<00:06,  2.66cell/s]Executing:  41%|████      | 11/27 [00:10<00:17,  1.10s/cell]Executing:  48%|████▊     | 13/27 [00:10<00:12,  1.14cell/s]Executing:  56%|█████▌    | 15/27 [00:11<00:09,  1.29cell/s]Executing:  63%|██████▎   | 17/27 [02:11<02:55, 17.60s/cell]Executing:  67%|██████▋   | 18/27 [02:12<02:11, 14.66s/cell]Executing:  70%|███████   | 19/27 [04:10<04:38, 34.77s/cell]Executing:  74%|███████▍  | 20/27 [04:11<03:11, 27.38s/cell]Executing:  78%|███████▊  | 21/27 [04:11<02:06, 21.11s/cell]Executing:  81%|████████▏ | 22/27 [04:13<01:20, 16.13s/cell]Executing:  85%|████████▌ | 23/27 [04:14<00:48, 12.11s/cell]Executing:  89%|████████▉ | 24/27 [04:15<00:27,  9.04s/cell]Executing:  93%|█████████▎| 25/27 [04:16<00:13,  6.75s/cell]Executing:  96%|█████████▋| 26/27 [04:16<00:04,  4.87s/cell]Executing: 100%|██████████| 27/27 [04:18<00:00,  9.58s/cell]
-/var/spool/slurmd.spool/job16088125/slurm_script: line 19: unexpected EOF while looking for matching `"'
-/var/spool/slurmd.spool/job16088125/slurm_script: line 20: syntax error: unexpected end of file
