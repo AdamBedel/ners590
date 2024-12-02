@@ -1,0 +1,58 @@
+Input Notebook:  Final_Project_Adam_Friday.ipynb
+Output Notebook: final_gpu_out.ipynb
+Executing:   0%|          | 0/11 [00:00<?, ?cell/s]Executing notebook with kernel: python3
+2024-12-02 11:39:16.571036: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:485] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-12-02 11:39:17.145333: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:8454] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-12-02 11:39:17.312818: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1452] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-12-02 11:39:18.356588: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-12-02 11:39:22.329432: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+Executing:   9%|▉         | 1/11 [00:22<03:47, 22.73s/cell]Executing:  18%|█▊        | 2/11 [01:17<06:15, 41.77s/cell]Executing:  27%|██▋       | 3/11 [01:20<03:09, 23.72s/cell]Executing:  36%|███▋      | 4/11 [01:23<01:51, 15.89s/cell]2024-12-02 11:40:36.818608: I tensorflow/core/common_runtime/gpu/gpu_device.cc:2021] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 14784 MB memory:  -> device: 0, name: Tesla V100-PCIE-16GB, pci bus id: 0000:3b:00.0, compute capability: 7.0
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1733157646.533485 1269905 service.cc:146] XLA service 0x15150808a6f0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1733157646.533516 1269905 service.cc:154]   StreamExecutor device (0): Tesla V100-PCIE-16GB, Compute Capability 7.0
+2024-12-02 11:40:46.969318: I tensorflow/compiler/mlir/tensorflow/utils/dump_mlir_util.cc:268] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+2024-12-02 11:40:47.858888: I external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:531] Loaded cuDNN version 8907
+I0000 00:00:1733157660.955956 1269905 device_compiler.h:188] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+Executing:  45%|████▌     | 5/11 [02:16<02:55, 29.27s/cell]Executing:  55%|█████▍    | 6/11 [02:18<01:38, 19.69s/cell]Executing:  64%|██████▎   | 7/11 [02:21<00:57, 14.34s/cell]Executing:  73%|███████▎  | 8/11 [02:25<00:33, 11.15s/cell]Executing:  82%|████████▏ | 9/11 [02:27<00:16,  8.27s/cell]Executing:  82%|████████▏ | 9/11 [02:30<00:33, 16.72s/cell]
+Traceback (most recent call last):
+  File "/home/abedel/.conda/envs/tfgpu/bin/papermill", line 8, in <module>
+    sys.exit(papermill())
+             ^^^^^^^^^^^
+  File "/home/abedel/.conda/envs/tfgpu/lib/python3.11/site-packages/click/core.py", line 1157, in __call__
+    return self.main(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/abedel/.conda/envs/tfgpu/lib/python3.11/site-packages/click/core.py", line 1078, in main
+    rv = self.invoke(ctx)
+         ^^^^^^^^^^^^^^^^
+  File "/home/abedel/.conda/envs/tfgpu/lib/python3.11/site-packages/click/core.py", line 1434, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/abedel/.conda/envs/tfgpu/lib/python3.11/site-packages/click/core.py", line 783, in invoke
+    return __callback(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/abedel/.conda/envs/tfgpu/lib/python3.11/site-packages/click/decorators.py", line 33, in new_func
+    return f(get_current_context(), *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/abedel/.conda/envs/tfgpu/lib/python3.11/site-packages/papermill/cli.py", line 235, in papermill
+    execute_notebook(
+  File "/home/abedel/.conda/envs/tfgpu/lib/python3.11/site-packages/papermill/execute.py", line 131, in execute_notebook
+    raise_for_execution_errors(nb, output_path)
+  File "/home/abedel/.conda/envs/tfgpu/lib/python3.11/site-packages/papermill/execute.py", line 251, in raise_for_execution_errors
+    raise error
+papermill.exceptions.PapermillExecutionError: 
+---------------------------------------------------------------------------
+Exception encountered at "In [9]":
+---------------------------------------------------------------------------
+IndexError                                Traceback (most recent call last)
+Cell In[9], line 6
+      3 image_std = []
+      5 for i in new_images:
+----> 6   diff.append(np.array(new_images[i]) - np.array(test_y[i]))
+      7   image_mean.append(np.mean(diff[i]))
+      8   image_std.append(np.std(diff[i]))
+
+IndexError: arrays used as indices must be of integer (or boolean) type
+
+/var/spool/slurmd.spool/job17617105/slurm_script: line 18: unexpected EOF while looking for matching `"'
+/var/spool/slurmd.spool/job17617105/slurm_script: line 19: syntax error: unexpected end of file

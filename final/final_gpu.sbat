@@ -3,7 +3,7 @@
 #SBATCH --job-name="final_gpu"
 #SBATCH --ntasks-per-gpu=1
 #SBATCH --time=00:30:00
-#SBATCH --mem=180
+#SBATCH --mem=180G
 #SBATCH --gres=gpu:1
 #SBATCH --account=ners590s002f24_class
 #SBATCH --partition=gpu
