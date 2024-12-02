@@ -1,14 +1,14 @@
 Input Notebook:  Final_Project_Adam_Friday.ipynb
 Output Notebook: final_out.ipynb
 Executing:   0%|          | 0/11 [00:00<?, ?cell/s]Executing notebook with kernel: python3
-2024-12-02 10:33:48.923820: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:485] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
-2024-12-02 10:33:49.045274: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:8454] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
-2024-12-02 10:33:49.081166: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1452] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
-2024-12-02 10:33:49.330907: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+2024-12-02 10:37:35.086414: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:485] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-12-02 10:37:35.200098: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:8454] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-12-02 10:37:35.231907: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1452] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-12-02 10:37:35.455964: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
 To enable the following instructions: AVX2 AVX512F FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
-2024-12-02 10:33:51.882246: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
-Executing:   9%|▉         | 1/11 [00:11<01:56, 11.67s/cell]Kernel died while waiting for execute reply.
-Executing:  18%|█▊        | 2/11 [00:28<02:13, 14.80s/cell]Executing:  18%|█▊        | 2/11 [00:28<02:08, 14.33s/cell]
+2024-12-02 10:37:37.902097: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+Executing:   9%|▉         | 1/11 [00:11<01:51, 11.11s/cell]Kernel died while waiting for execute reply.
+Executing:  18%|█▊        | 2/11 [00:29<02:19, 15.54s/cell]Executing:  18%|█▊        | 2/11 [00:29<02:13, 14.88s/cell]
 Traceback (most recent call last):
   File "/home/abedel/.conda/envs/tfgpu/lib/python3.11/site-packages/papermill/cli.py", line 235, in papermill
     execute_notebook(
@@ -36,6 +36,6 @@ Traceback (most recent call last):
   File "/home/abedel/.conda/envs/tfgpu/lib/python3.11/site-packages/nbclient/client.py", line 1009, in async_execute_cell
     raise DeadKernelError("Kernel died") from None
 nbclient.exceptions.DeadKernelError: Kernel died
-/var/spool/slurmd.spool/job17616499/slurm_script: line 19: unexpected EOF while looking for matching `"'
-/var/spool/slurmd.spool/job17616499/slurm_script: line 20: syntax error: unexpected end of file
-slurmstepd: error: Detected 1 oom_kill event in StepId=17616499.batch. Some of the step tasks have been OOM Killed.
+/var/spool/slurmd.spool/job17616885/slurm_script: line 19: unexpected EOF while looking for matching `"'
+/var/spool/slurmd.spool/job17616885/slurm_script: line 20: syntax error: unexpected end of file
+slurmstepd: error: Detected 1 oom_kill event in StepId=17616885.batch. Some of the step tasks have been OOM Killed.
