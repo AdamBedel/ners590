@@ -3,7 +3,7 @@ AI/ML coursework
 
 FOR THE FINAL:
 
-The final code is contained within final/Final_Project_Adam_Friday-copy.ipynb
+The final code is contained within final/Final_Project_Adam_Friday-copy.ipynb with some extra plotting functions contained in final/Final_Project_Extra_Analysis_And_Long_Term_Predictions (1).ipynb
 
 15 minute timestep data is in final/TRAIN and final/TEST
 
